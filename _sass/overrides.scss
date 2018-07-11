@@ -4,3 +4,9 @@
   float: left;
   height: 54px;
 }
+ul.post-list {
+  li { 
+    margin-bottom: 16px;
+    .post-link { font-size: 16px }
+  }
+}
