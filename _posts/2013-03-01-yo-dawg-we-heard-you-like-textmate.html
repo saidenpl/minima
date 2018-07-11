@@ -1,0 +1,76 @@
+---
+layout: post
+title: YO DAWG, WE HEARD YOU LIKE TEXTMATE…
+date: '2013-03-01T10:10:00+01:00'
+tags:
+- vim
+- textmate
+- snippet
+- snipmate
+- editor
+- linux
+- unix
+- macosx
+tumblr_url: http://aladac.tumblr.com/post/44295527729/yo-dawg-we-heard-you-like-textmate
+---
+<p>&hellip; so here&rsquo;s <a href="https://github.com/garbas/vim-snipmate">Snipmate</a> for your Vim so you can <a href="http://macromates.com/">TextMate</a> while you Vim.</p>
+
+<p><a href="http://macromates.com/">TextMate</a> is great. My most favourite TextMate feature are the Snippets.
+What is a Snippet? A Snippet is a piece of code that defines the editors helpful behaviour in a given context.
+Sounds complicated? Well it&rsquo;s really not. Here&rsquo;s how it works:</p>
+
+<h1>TextMate Snippet video example</h1>
+
+<iframe width="853" height="480" src="http://www.youtube.com/embed/hQTPcDPUVYs?vq=hd720" frameborder="0"></iframe>
+
+<p>The second Snippet used here, namely the <code>opt⇥</code> looks like this inside:</p>
+
+<h1>snippet code example</h1>
+
+<pre class="prettyprint">
+opts.on( "-${1:o}", "--${2:long-option-name}${6: }"${3/^\s*$|(.*\S.*)/(?1:, )/}${3:String},
+         "${4:Option description.}" ) do |$2|
+    options[:$2] = $2
+end
+$5
+</pre>
+
+<p>This basically defines what to initialy put when 
+<code>opt⇥</code>  is entered, and were are the cursor jump points after 
+the initial template is inserted.</p>
+
+<p>TextMate is a really cool tool - but it is a commercial tool. One of it&rsquo;s major competitors <a href="http://www.sublimetext.com/">Sublime Text</a> is also commercial. 
+Both of those editors are also not exaclty cheap.</p>
+
+<p>But fear not, there is one reliable piece of software that has been there almost forever for every Unix SysAdmin, SysOp, DevOp, WhateverOp.
+I mean off course <strike>Ema&hellip;</strike> <a href="http://www.vim.org/">Vim</a>!</p>
+
+<h1>Things you need</h1>
+
+<ul><li>Vim</li>
+<li>pathogen Vim plugin</li>
+<li>git</li>
+</ul><p>If you don&rsquo;t already use the <a href="https://github.com/tpope/vim-pathogen">pathogen plugin</a>, do it right now. By the way - <a href="https://github.com/tpope">Tim Pope</a>, the author of pathogen is the goto man for your Vim plugin needs.
+Follow the instructions provided by the link above to install the plugin.</p>
+
+<h1>making it work</h1>
+
+<p>After installing pathogen, you should have you <code>~/.vim/bundle</code> directory. All you need to do now in your terminal is:</p>
+
+<pre id="no">
+cd ~/.vim/bundle
+git clone <a href="https://github.com/garbas/vim-snipmate">https://github.com/garbas/vim-snipmate</a>
+git clone <a href="https://github.com/vim-scripts/tlib.git">https://github.com/vim-scripts/tlib.git</a>
+git clone <a href="https://github.com/vim-scripts/vim-addon-mw-utils.git">https://github.com/vim-scripts/vim-addon-mw-utils.git</a>
+git clone <a href="https://github.com/honza/snipmate-snippets.git">https://github.com/honza/snipmate-snippets.git</a>
+</pre>
+
+<p>This will download Snipmate and and its dependencies straight into your <code>~/.vim/bundle</code> directory, from which pathogen will auto-load them once you start Vim.</p>
+
+<p>And voila:</p>
+
+<h1>Snipmate Snippet video example</h1>
+
+<iframe width="853" height="480" src="http://www.youtube.com/embed/MRIwe1wIS8Y?vq=hd720" frameborder="0"></iframe>
+
+<p>After having successfully added the Snippets functionality it would be nice to make Vim a little prettier, by making use of all the 256 colors a modern terminal emulator usually provides and installing a clone of Ryan Bates <em>&ldquo;railscasts&rdquo;</em> color schemes. But that is a subject for another post, another time.</p>

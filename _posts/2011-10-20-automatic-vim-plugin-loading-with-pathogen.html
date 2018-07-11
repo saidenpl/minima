@@ -1,0 +1,17 @@
+---
+layout: post
+title: Automatic vim plugin loading with pathogen
+date: '2011-10-20T00:00:00+02:00'
+tags:
+- vim
+- plugin
+tumblr_url: http://aladac.tumblr.com/post/19947557086/automatic-vim-plugin-loading-with-pathogen
+---
+<p>My editor of choice is vim. I am using a MacOS desktop with a fairly recent version of vim, but I am often working on Ubuntu servers. Even in the newest <span class="caps">LTS</span> the vim plugins available in the standard package repos may be ancient.</p>
+<p>I found a convenient way to auto load plugins installed directly from git repositories: <a href="https://github.com/tpope/vim-pathogen">pathogen.vim</a></p>
+<p>You just need to:</p>
+<div class="gist"><a href="https://gist.github.com/1301176">https://gist.github.com/1301176</a></div>
+<p>&hellip; then edit your .vimrc to initialize pathogen:</p>
+<div class="gist"><a href="https://gist.github.com/2204136">https://gist.github.com/2204136</a></div>
+<p>&hellip; and install a plugin to test if everything works:</p>
+<div class="gist"><a href="https://gist.github.com/2204145">https://gist.github.com/2204145</a></div>

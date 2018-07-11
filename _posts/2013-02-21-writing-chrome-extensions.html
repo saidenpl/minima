@@ -1,0 +1,65 @@
+---
+layout: post
+title: Writing Chrome Extensions
+date: '2013-02-21T05:56:00+01:00'
+tags:
+- google
+- chrome
+- extension
+- javascript
+- jquery
+tumblr_url: http://aladac.tumblr.com/post/43638054042/writing-chrome-extensions
+---
+<p>I love Google. I truly do. Not because of all the “free” stuff they let you use, but because of the endless supply of development tools and resources one can get from them. Be that <a href="http://www.google.com/webfonts">Web Fonts</a> or <a href="https://developers.google.com/speed/libraries/">Hosted libraries</a> or their <a href="https://developers.google.com/products/">SDK’s and API’s</a>.</p>
+
+<p>I recently came across a tutorial on writing your own Chrome extensions, and frankly was surprised how easy it came out be. I recommend reading the <a href="http://developer.chrome.com/extensions/getstarted.html">tutorial</a>.</p>
+
+<p>For a person with even mediocre understanding of HTML and JavaScript it shouldn’t pose a problem to put together a simple extension of their own.</p>
+
+<p>You start with preparing a <code>manifest.json</code> file, which pretty much is what its name implies. This describes the extension and by means of the <code>permissions</code> settings allows for example to bypass <a href="http://en.wikipedia.org/wiki/Same_origin_policy">Same origin policy</a>, shoud you want to use AJAX, but we will focus on something very simple - namely injecting your code into the document loaded in the currently selected tab.</p>
+
+<p><code>manifest.json</code></p>
+
+<pre class="prettyprint">
+{
+  "name": "A browser action running JQuery on loaded docs DOM",
+  "version": "1.0",
+  "background": { "scripts": ["background.js"] },
+  "permissions": [
+    "http://*/*"
+  ],
+  "browser_action": {
+    "name": "Run me!"
+  },
+  "manifest_version": 2
+}
+</pre>
+
+<p>Now we have to fashion up a <code>background.js</code> file with a listener which will be triggered by the event of pressing the extension button. The triggered action will be loading the <code>jquery.min.js</code>, and as its callback executing the short JQuery code, which adds the word test at the begining of documents body contents.</p>
+
+<p><code>background.js</code></p>
+
+<pre class="prettyprint">
+chrome.browserAction.onClicked.addListener(function(tab) {
+  chrome.tabs.executeScript(null, {file:"jquery.min.js"}, function() {
+    chrome.tabs.executeScript(null, {code:"$('body').prepend('Test');"});
+  });
+});
+
+</pre>
+
+<p>After that you just make sure all the files are saved in the same directory and:</p>
+
+<ul><li>start Chrome</li>
+<li>open the extensions tab (chrome://extensions)</li>
+<li>check the developer mode</li>
+<li>click “load unpacked extension”</li>
+<li>select your extension directory</li>
+</ul><p>…and that’s the whole shebang. Your extension should be loaded, which will be indicated by the little puzzle piece icon top right corner. After that load up a page and test it. Each time you press it, the word <em>“Test”</em> wrapped in <code>h1</code> tags in should be added to the beginning of the documents body.</p>
+
+<p>That&rsquo;s hardly a useful extension but you can do much more, for example:</p>
+
+<ul><li>add a nifty download button to a site like YouTube</li>
+<li>change the looks of pages you visit by hiding parts of them, or changing their looks altogether</li>
+<li>communicate with Chromes options and features</li>
+</ul><p>There are loads of ready <a href="http://developer.chrome.com/extensions/samples.html">examples</a> on the Google Chrome Extensions pages, along with more detailed guides explaining what, when and why.</p>

@@ -1,0 +1,13 @@
+---
+layout: post
+title: One little digit... so much difference
+date: '2012-03-09T00:00:00+01:00'
+tags:
+- ruby
+- gem
+- fail
+tumblr_url: http://aladac.tumblr.com/post/19947476958/one-little-digit-so-much-difference
+---
+<p>I was writing a simple script which was supposed to dump data from MySQL to a flat file with pipe delimited values.</p>
+<p>The output was supposed to be in CP-1250 encoding, but somehow the transcoding failed, stating incorrect conversion from <span class="caps">ASCII</span>-8BIT, to <span class="caps">UTF</span>-8 then to the desired encoding… <span class="caps">WTF</span> is <span class="caps">ASCII</span>-8BIT?!?!</p>
+<p>I was surprised, because when I analyzed the output before transcoding it was <span class="caps">UTF</span>-8 not <span class="caps">ASCII</span>-8BIT (whatever it is). <br/>After googling I learned what I was doing wrong – I was actually using an older gem called <strong>mysql</strong> and was supposed to be using <strong>mysql2</strong> :)</p>

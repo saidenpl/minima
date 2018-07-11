@@ -1,0 +1,26 @@
+---
+layout: post
+title: How to make nice screencasts with free software on Mac, Linux or Windows
+date: '2012-03-27T10:46:56+02:00'
+tags:
+- screencast
+- free
+- software
+- windows
+- macosx
+- linux
+tumblr_url: http://aladac.tumblr.com/post/20009106422/how-to-make-nice-screencasts-with-free-software-on
+---
+<p>For now I only played around with recording screencasts, because frankly anything I would like to share has already been recorded by someone else. </p>
+<p>I have been looking for a free screen video capture tool for Mac and failed to find any that suit my needs, so I decided to use Ubuntu and <a href="http://xvidcap.sourceforge.net/">Xvidcap</a></p>
+<p>I use a <a href="https://www.virtualbox.org/">VirtualBox</a> virtual Ubuntu installation and just capture the fullscreen area. The post recording editing is done in <a href="http://fixounet.free.fr/avidemux/">Avidemux</a> which is available for Linux, Mac OS X and Windows.</p>
+<p>Capture is done like this:</p>
+<div class="gist"><a href="https://gist.github.com/2214318">https://gist.github.com/2214318</a></div>
+<p>Then you can record audio any way that suits you, and mux it in Avidemux.</p>
+<p>You can upload the video to video hosting site of your choice.</p>
+<p>If you want the video to look nice on YouTube, and you are not using 720p you can persuade VirtualBox with installed guest additions to switch to YouTube&rsquo;s preferred 480p mode like so:</p>
+<div class="gist"><a href="https://gist.github.com/2215598">https://gist.github.com/2215598</a></div>
+<p>&hellip; or if you did not install guest additions you can do it like this, but you need to restart the virtual machine:</p>
+<div class="gist"><a href="https://gist.github.com/2215608">https://gist.github.com/2215608</a></div>
+<p>Here is a sample on YouTube:</p>
+<p><iframe frameborder="0" height="360" src="http://www.youtube.com/embed/_1Wq2gDBTUQ" width="640"></iframe></p>
